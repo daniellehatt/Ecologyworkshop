@@ -1,7 +1,31 @@
 ---
 title: 'Ecology Workshop: Project Proposal'
-author: "Sparkle L. Malone"
+author: "Danielle Hatt"
 date: "1/10/2020"
-output: html_document
+output:
+  html_document: default
 ---
+
+## Research Statement
+My research is in conjuction with Dr. Ligia Collado-Vides based on baseline data for standing stock, productivity and nutrients of green calcareous macroalgae obtained as a participant of the Florida Coastal Everglades long-term Ecological Research (FCE:LTER) program. With this dataset, we are focused on biomass and nutrient tissue content of genera *Halimeda* and *Penicillus* within three sites (Bob Allen Keys, Duck Key and Sprigger Bank) over the past 10 years (2008-2018).
+
+## Objectives
+Within Florida Bay, there is a gradient of higher nitrogen (N) and lower phosphorus (P) from the northeast region of the bay to the southwest regions of the bay as previously reported in seagrass studies (Fourqurean et al. 1992, Frankovich and Fourqurean 1997). However, to my knowledge, no studies show a nutrient gradient for calcareous macroalgae in Florida Bay. My goal is to use a time series analysis to determine and compare the fluctuation of standing stock and nutrient tissue content between each genera and among the three sites throughout the surveyed period without seasonality flcutuations as noise.
+
+## Hypotheses
+(1) The standing stock will be genera dependent with expected larger contribution by Halimeda spp. than in *Penicillus* spp. 
+(2) The standing stock will be site dependent with a larger contribution expected towards to southwest region of the bay (SB) than the sites closer to the northeast region of the bay (BA, DK).
+(3) There will be no variability expected in nutrient tissue content between Halimeda and *Penicillus* because they are both coenocytic and calcifying green macroalgae.
+(4) *Penicillus* will show a spatial variability of nitrogen and phosphorus limitation with higher nitrogen and lower phosphorus towards the northeast region of the bay. 
+
+## Dataset
+The dataset being used is public access data published as part of the LTER:FCE program. Samples were collected by Seagrass Lab at Florida International University and processed by the Marine Macroalgae Research Lab (MMRL) at Florida International university. 
+
+## Statistical Analysis
+Statistical analyses were carried out using IBM SPSS software. Parametric tests (one-way ANOVA) were used for normally distributed sampling. Non-parametric tests (Mann-Whitney and Kruskal-Wallis) were used for samples not normally distributed.
+
+## References
+Fourqurean, J.W., J.C. Zieman and G.V. Powell. 1992. Phosphorus limitation of primary production in Florida Bay: evidence from C:N:P ratios of the dominant seagrass Thalassia testudinum. Limnol. Oceanog. 37: 162-171.
+
+Frankovich, T. A., and J.W Fourqurean. 1997. Seagrass epiphyte loads along a nutrient availability gradient, Florida Bay, USA. Mar. Ecol-Prog Ser. 157: 37-50.
 
