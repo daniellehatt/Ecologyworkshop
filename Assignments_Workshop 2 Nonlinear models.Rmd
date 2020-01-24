@@ -1,0 +1,155 @@
+---
+title: "Workshop 2_Nonlinear Models"
+author: "Danielle Hatt"
+date: "1/24/2020"
+output:
+  html_document: default
+  fig_caption: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Objectives
+The primary objectives of this analysis is to fit monthly light response curves for Harvard forest to understand annual patterns ecosystem photosynthetic potential and respiration rates in temperate mixed forests of Massachusetts.
+
+# Methods
+
+### Site Information:
+Harvard Forest is a deciduous forest located in Petersham, Massachusetts (42.53,-72.19) with multiple study sites (Figure 1). Harvard forest has a cool and moist temperature with mean seasonal temperatures ranging from -7C to 20C. Temperature and ecosystem phososynthetic data was collected annually from 1991-2016 at long-term study plot, NEON tower (Figure 2). 
+
+<center>
+
+![**Figure 1 showing a map of sites in Harvard Forest.**](/Users/daniellehatt/Downloads/HF-all_0.jpg){width=40%}
+
+</center>
+
+<center>
+
+![**Figure 2 showing a map of Prospect Hill and NEON tower collection site.**](/Users/daniellehatt/Downloads/PH-Trails-Roads-17.jpg){width=40%}
+
+</center>
+
+### Photosynthetic Potential:
+
+### Ecosystem Respiration:
+
+# Results
+```{r echo=FALSE, include=FALSE}
+library(nlstools)
+load("/Users/daniellehatt/Desktop/Ecologyworkshop/NLM_Workshop.RData")
+```
+```{r fig.cap= "**Figure 3: NEE vs. TA**",fig.align='center', echo=FALSE}
+plot(NEE~TA, data=night)
+```
+```{r fig.cap= "**Figure 4: Visual Assessment of Residuals**", fig.align='center', echo=FALSE}
+trcModel <- function(TA, a, b) {
+  y=a * exp(b*TA)
+  return(y)
+}
+trc.int <- function (mCall, LHS, data){
+  x <- data$TA
+  y <- data$NEE
+  
+  a <-1.00703982 + -0.08089044* (min(na.omit(y)))
+  b <- 0.051654 + 0.001400 * (min(na.omit(y))) 
+  
+  value = list(a, b)
+  names(value) <- mCall[c("a", "b")]
+  return(value)
+}
+
+SS.trc <- selfStart(model=trcModel,initial= trc.int)
+iv <- getInitial(NEE ~ SS.trc('TA', "a", "b"), data = night[which(night$MONTH == 07),])
+iv
+y = nls( NEE ~ (a * exp(b * TA)), 
+         night[which(day$MONTH == 07),], start=list(a= iv$a , b= iv$b),
+         na.action=na.exclude, trace=F, control=nls.control(warnOnly=T))
+summary(y)
+res.trc <- nlsResiduals(y)
+par(mfrow=c(2,2))
+plot(res.trc, which=1)# Residulas vs fitted values (Constant Variance)
+plot(res.trc, which=3) # Standardized residuals
+plot(res.trc, which=4) # Autocorrelation
+plot(res.trc, which=5) # Histogram (Normality)
+```
+``````{r fig.cap= "**Figure 5: Boxplots showing bootstrap estimates**", fig.align='center', echo=FALSE}
+results.trc <- nlsBoot(y, niter=100) 
+summary(results.trc)
+plot(results.trc, type = "boxplot")
+```
+```{r echo=FALSE, include=FALSE}
+#WORKFLOW
+parms.Month <- data.frame(
+  MONTH=numeric(),
+  a=numeric(),
+  b=numeric(),
+  a.pvalue=numeric(),
+  b.pvalue=numeric(),
+  stringsAsFactors=FALSE, row.names=NULL)
+parms.Month[1:12, 1] <- seq(1,12,1) # Adds months to the file
+
+nee.night <- function(dataframe){y = nls( NEE ~ (a * exp(b * TA)), dataframe,
+                                           start=list(a= iv$a , b= iv$b),
+                                           na.action=na.exclude, trace=F, control=nls.control(warnOnly=T))
+y.df <- as.data.frame(cbind(t(coef(summary(y)) [1:2, 1]), t(coef(summary(y)) [1:2, 4]))) 
+names(y.df) <-c("a","b", "a.pvalue", "b.pvalue")
+return (y.df )}
+
+#Creating loop
+try(for(j in unique(night$MONTH)){
+  print(j)
+  # Determines starting values:
+  iv <- getInitial(NEE ~ SS.trc('PAR', "a", "b"), data = night[which(day$MONTH == j),])
+  # Fits temperature response curve:
+  y3 <- try(nee.night(night[which(night$MONTH == j),]), silent=T) # Extracts data and saves it in the dataframe
+  try(parms.Month[c(parms.Month$MONTH == j ), 2:5 ] <- cbind(y3), silent=T) 
+  rm(y3)
+}, silent=T) 
+parms.Month
+
+#Bootstrap
+#Create file to store parms and se
+boot.NEE <- data.frame(parms.Month[, c("MONTH")]); names (boot.NEE) <- "MONTH"
+boot.NEE$a.est<- 0
+boot.NEE$b.est<- 0
+boot.NEE$a.se<- 0
+boot.NEE$b.se<- 0
+
+for ( j in unique(boot.NEE$MONTH)){
+  print(j)
+  y1 <-night[which(night$MONTH == j),]
+  
+  # Determines the starting values:
+  iv <- getInitial(NEE ~ SS.trc('TA',"a", "b"), data = y1) 
+  
+  # Fit curve
+  night.fit <- nls(NEE ~ a * exp(b*TA), 
+                   data=y1, start=list(a= iv$a , b=iv$b ),
+                   na.action=na.exclude, trace=F,
+                   control=nls.control(warnOnly=T))
+  
+  # Bootstrap and extract values:
+  try(results <- nlsBoot(night.fit, niter=100), silent=T)
+  try(a <- t(results$estiboot)[1, 1:2], silent=T)
+  try(names(a) <- c('a.est', 'b.est'), silent=T)
+  try(b <- t(results$estiboot)[2, 1:2], silent=T)
+  try(names(b) <- c('a.se', 'b.se'), silent=T)
+  try(c <- t(data.frame(c(a,b))), silent=T)
+  
+  # Add bootstrap data to dataframe:
+  try(boot.NEE[c(boot.NEE$MONTH == j), 2:5] <- c[1, 1:4], silent=T)
+  try(rm(night.fit, a, b, c, results, y1), silent=T)
+}
+
+trc <- merge(parms.Month, boot.NEE) #merge dataframes
+trc
+```
+```{r echo=FALSE}
+library(knitr)
+kable(trc, caption = "**Table 1 showing bootstrap error estimation for each parameter**", digits = 350)
+```
+
+# Discussion
+Visualizing the data with a scatter plot shows high variation with an increase in temperature (Figure 3). In order to determine if there was a relationship between temperature (TA) and net ecosystem exchange (NEE), a temperature response curve was fitted (Arrhenius approach: NEE ~ a exp(b∗TA)). The residuals and autocorrelation graphs plotted in Figure 4 show that the data violate the normality assumption and thus did not fit this model. Therefore, there is no relationship between temperature and net ecosystem exchange.
+
