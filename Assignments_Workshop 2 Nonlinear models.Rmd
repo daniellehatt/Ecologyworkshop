@@ -1,16 +1,23 @@
 ---
 title: "Workshop 2_Nonlinear Models"
+<<<<<<< HEAD
 author: "Danielle Hatt"
 date: "1/24/2020"
 output:
   html_document: default
   fig_caption: yes
+=======
+author: "Sparkle L. Malone"
+date: "1/17/2020"
+output: github_document
+>>>>>>> 1f9da059ababed0a631170d8888be96c75f3e35f
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 # Objectives
+<<<<<<< HEAD
 The primary objectives of this analysis is to fit monthly light response curves for Harvard forest to understand annual patterns ecosystem photosynthetic potential and respiration rates in temperate mixed forests of Massachusetts.
 
 # Methods
@@ -153,3 +160,19 @@ kable(trc, caption = "**Table 1 showing bootstrap error estimation for each para
 # Discussion
 Visualizing the data with a scatter plot shows high variation with an increase in temperature (Figure 3). In order to determine if there was a relationship between temperature (TA) and net ecosystem exchange (NEE), a temperature response curve was fitted (Arrhenius approach: NEE ~ a exp(b∗TA)). The residuals and autocorrelation graphs plotted in Figure 4 show that the data violate the normality assumption and thus did not fit this model. Therefore, there is no relationship between temperature and net ecosystem exchange.
 
+=======
+The primary objectives of this analysis is to fit monthly light response curves for Harvard forest to understand annual patterns ecosystem photosynthetic potential and respiration rates in temperate mixed forests...
+
+
+# Methods
+
+## Site Information (include a map of the harvard forest site)
+
+## Photosynthetic Potential
+
+## Ecosystem Respiration
+
+# Results (at least 1 plot and one table)
+
+# Discussion (1 paragrapgh)
+>>>>>>> 1f9da059ababed0a631170d8888be96c75f3e35f
