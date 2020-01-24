@@ -31,10 +31,10 @@ Harvard Forest is a deciduous forest located in Petersham, Massachusetts (42.53,
 </center>
 
 ### Photosynthetic Potential:
-Using net ecosystem exchange and photosynthetically active radiation (PAR) data collected from trees in the Harvard Forest during the day, the Michaelis-Menten Approach (NEE ~ (a1 * PAR * ax)/(a1 * PAR + ax) + r) will be used to fit a light response curve to the data.
+Using net ecosystem exchange and photosynthetically active radiation (PAR) data collected from trees in the Harvard Forest during the day, the Michaelis-Menten Approach (NEE ~ (a1 * PAR * ax)/(a1 * PAR + ax) + r) will be used to fit a light response curve to the data. Bootstrapping was then conducted on the data.
 
 ### Ecosystem Respiration:
-Using temperature and respiration data collected from trees in Harvard Forest at night, the Arrhenius model (NEE ~ a exp(b∗TA)) will be used to attempt to fit a temperature response curve to the data.
+Using temperature and respiration data collected from trees in Harvard Forest at night, the Arrhenius model (NEE ~ a exp(b∗TA)) will be used to attempt to fit a temperature response curve to the data. Bootstrapping was then conducted on the data.
 
 # Results
 ```{r echo=FALSE, include=FALSE}
