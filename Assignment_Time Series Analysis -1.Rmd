@@ -1,0 +1,106 @@
+---
+title: "Workshop 3_Timeseries Models"
+author: "Sparkle L. Malone"
+date: "1/24/2020"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Objectives
+The primary objectives of this analysis is determine if there is a trend in standing stock of calcareous green algae, *Penicillus*, from 2007-2015 in Florida Bay. The anaylsis will also develop explanatory models using temperature and salinity. 
+
+# Methods
+
+### Site Information 
+Florida Bay is a subtropical lagoon system with large expanses of seagrass beds and macroalgae. Biomass data for *Penicillus* spp. was collected as a proxy for organic carbon from Duck Key (TS/Ph9) in Florida Bay (Figure 1). Duck Key is located in the north eastern region of Florida Bay which is characterized by brackish waters with low salinity compared to other regions of the Bay. This site has low algal species diversity with only *Penicillus* present. Due to its location close to the watershed, there is typically higher nitrogen and phosphorus limitation at this site.
+
+<center>
+
+![Figure 1 showing study sites at Florida Bay](/Users/daniellehatt/Desktop/BSC 6926/FlBay_map2.jpg){width=40%}
+
+<center>
+
+### Statistical Analysis
+
+# Results
+```{r echo=FALSE, include=FALSE}
+library(zoo) 
+library(tseries)
+library(fracdiff)
+library(forecast) 
+library(xts)
+Tab.DK=read.csv("/Users/daniellehatt/Desktop/BSC 6926/Data.DK.csv", header = TRUE)
+Tab.DK
+```
+```{r echo=FALSE}
+nee1 <- ts( Tab.DK$Biomass, start= 1, frequency=6)
+nee1
+par(mfrow=c(1,1), mai=c(0.25,0.8,0.1, 0.1)) 
+plot( nee1, typ="l", ylab= "Biomass", xlab="")
+plot(nee1)
+lines(tsclean(nee1), col="red")
+nee1 <- tsclean(nee1)
+nee1
+nee.d1 <- decompose(nee1, 'multiplicative') 
+plot(nee.d1)
+adf.test(nee1) #ts is satationary:null hyp not rejected
+acf(nee1, lag.max=45)
+pacf(nee1, lag.max=45)
+arima.nee2 <-auto.arima(nee1, trace=TRUE)
+tsdisplay(residuals(arima.nee2), lag.max=50)
+AIC(arima.nee2)
+par(mfrow=c(1,1))
+plot(nee1 , typ="l"); lines(fitted(arima.nee2),col="red")
+checkresiduals(arima.nee2, lag=36)
+plot(forecast(arima.nee2, h=12))
+```
+```{r echo=FALSE}
+#Explanatory series for temperature
+Tab.DK=read.csv("/Users/daniellehatt/Desktop/BSC 6926/Data.DK.csv", header = TRUE)
+Tab.DK
+temp <- ts(Tab.DK$Temperature, start= 1, frequency=6)
+par(mfrow=c(1,1), mai=c(0.25,0.8,0.1, 0.1)) 
+plot(temp, typ="l", ylab= "Temperature", xlab="")
+lines(tsclean(temp) , col="red")
+temp <- tsclean(temp)
+temp.d <- decompose(temp, 'multiplicative') 
+plot(temp.d)
+adf.test(temp)
+ccf( diff(temp),nee1, na.action = na.pass, lag.max=40, plot=TRUE)
+arima.nee3 <-auto.arima(nee1, xreg=c(diff(temp),0), trace=TRUE)
+AIC(arima.nee2, arima.nee3)
+temp.i <- temp
+temp.i[temp.i > 28 ]<- 0 
+temp.i[temp.i >= 28 ]<- 1
+plot(temp.i)
+arima.nee4 <-auto.arima(nee1, xreg=temp.i, trace=TRUE)
+AIC(arima.nee2,arima.nee4 )
+checkresiduals(arima.nee4, lag=36)
+par(mfrow=c(1,1))
+plot(nee1 , typ="l"); lines(fitted(arima.nee4),col="red")
+
+#Explanatory series for salinity
+sal <- ts(Tab.DK$Salinity, start= 1, frequency=6)
+par(mfrow=c(1,1), mai=c(0.25,0.8,0.1, 0.1)) 
+plot(sal , typ="l", ylab= "Salinity", xlab="")
+lines(tsclean(sal) , col="red")
+sal <- tsclean(sal)
+sal.d <- decompose(sal, 'multiplicative') 
+plot(sal.d)
+adf.test(sal)
+ccf( diff(sal),nee1, na.action = na.pass, lag.max=40, plot=TRUE)
+arima.nee5 <-auto.arima(nee1, xreg=c(diff(sal),0), trace=TRUE)
+AIC(arima.nee2, arima.nee5 )
+sal.i <- sal 
+sal.i[sal.i < 25 ]<- 0 
+sal.i[sal.i >= 25 ]<- 1
+plot(sal.i)
+arima.nee6 <-auto.arima(nee1, xreg=sal.i, trace=TRUE)
+AIC(arima.nee2,arima.nee6 )
+checkresiduals(arima.nee6, lag=36)
+par(mfrow=c(1,1))
+plot(nee1 , typ="l"); lines(fitted(arima.nee6),col="red")
+```
+
+# Discussion
