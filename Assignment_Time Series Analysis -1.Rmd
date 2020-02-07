@@ -1,29 +1,31 @@
 ---
 title: "Workshop 3_Timeseries Models"
-author: "Sparkle L. Malone"
-date: "1/24/2020"
+author: "Danielle Hatt"
+date: "1/31/2020"
 output: html_document
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 # Objectives
-The primary objectives of this analysis is determine if there is a trend in standing stock of calcareous green algae, *Penicillus*, from 2007-2015 in Florida Bay. The anaylsis will also develop explanatory models using temperature and salinity. 
+The primary objectives of this analysis is determine if there is a trend in standing stock of calcareous green algae, *Penicillus*, from 2007-2015 in Florida Bay. It is predicted that macroalgae is following a declining trend in biomass with channging abiotic variables due to climate change. The anaylsis will also develop explanatory models using temperature and salinity to determine if there are specific drivers of biomass in Florida Bay. We would like to use this information to forecast any trends in biomass that might occur in order to determine if implementation of mitigation activity is necessary.
 
 # Methods
 
 ### Site Information 
-Florida Bay is a subtropical lagoon system with large expanses of seagrass beds and macroalgae. Biomass data for *Penicillus* spp. was collected as a proxy for organic carbon from Duck Key (TS/Ph9) in Florida Bay (Figure 1). Duck Key is located in the north eastern region of Florida Bay which is characterized by brackish waters with low salinity compared to other regions of the Bay. This site has low algal species diversity with only *Penicillus* present. Due to its location close to the watershed, there is typically higher nitrogen and phosphorus limitation at this site.
+Florida Bay is a subtropical lagoon system with large expanses of seagrass beds and macroalgae. Biomass data for *Penicillus* spp. was collected as a proxy for organic carbon from Duck Key (TS/Ph9) in Florida Bay (Figure 1). Duck Key is located in the north eastern region of Florida Bay which is characterized by brackish waters with low salinity compared to other regions of the Bay. This site has low algal species diversity with only *Penicillus* present. Due to its location close to the watershed, there is typically higher nitrogen and phosphorus limitation at this site thereby affecting biomass.
 
 <center>
 
-![Figure 1 showing study sites at Florida Bay](/Users/daniellehatt/Desktop/BSC 6926/FlBay_map2.jpg){width=40%}
+![**Figure 1 showing study sites at Florida Bay**](/Users/daniellehatt/Desktop/BSC 6926/FlBay_map2.jpg){width=40%}
 
 <center>
 
 ### Statistical Analysis
+The Augmented Dickey-Fuller Test will be used to test stationarity and autocorrelation will be carried out on the data. When the model is applied, residuals will be tested using autocorrelation and the Ljung-Box test will be used to test for independence. The Akaike Information Criteria (AIC) will be used to compare the model and explatory variables.
 
 # Results
+The data for biomass of *Penicillus* over the past 8 years was cleaned to remove one significant spike. The data was decomposed using multiplicative time series analysis to determine any underlying trends. The data followed stationarity and autocorrelation assumptions. An Auto Regressive Integrated Moving Average (ARIMA) model was fit and used to forecast future values of biomass of *Penicillus* in Florida Bay. The residuals were plotted to determine its distribution and significance. The AIC showed that the model fit the data.
 ```{r echo=FALSE, include=FALSE}
 library(zoo) 
 library(tseries)
@@ -32,30 +34,42 @@ library(forecast)
 library(xts)
 Tab.DK=read.csv("/Users/daniellehatt/Desktop/BSC 6926/Data.DK.csv", header = TRUE)
 Tab.DK
+Biomass <- ts( Tab.DK$Biomass, start= 1, frequency=6)
+Biomass
 ```
 ```{r echo=FALSE}
-nee1 <- ts( Tab.DK$Biomass, start= 1, frequency=6)
-nee1
-par(mfrow=c(1,1), mai=c(0.25,0.8,0.1, 0.1)) 
-plot( nee1, typ="l", ylab= "Biomass", xlab="")
-plot(nee1)
-lines(tsclean(nee1), col="red")
-nee1 <- tsclean(nee1)
-nee1
-nee.d1 <- decompose(nee1, 'multiplicative') 
-plot(nee.d1)
-adf.test(nee1) #ts is satationary:null hyp not rejected
-acf(nee1, lag.max=45)
-pacf(nee1, lag.max=45)
-arima.nee2 <-auto.arima(nee1, trace=TRUE)
+par(mfrow=c(1,1), mai=c(0.5,0.8,0.5, 0.5)) 
+plot(Biomass, typ="l",xaxt="none", ylab= "Biomass", xlab="Time", main="Figure 2 showing Biomass of Penicillus at Duck Key from 2007-2015")
+axis(1,at=seq(1,10,1),  labels=seq(2007,2016,1))
+lines(tsclean(Biomass), col="red")
+```
+```{r echo=FALSE, include=FALSE}
+Biomass <- tsclean(Biomass)
+Biomass
+```
+```{r echo=FALSE}
+Biomass.d1 <- decompose(Biomass, 'multiplicative') 
+par(mfrow=c(1,1), mai=c(0.5,1.5,0.5, 0.5)) 
+plot(Biomass.d1, xaxt="none")
+axis(1,at=seq(1,10,1),  labels=seq(2007,2016,1))
+```
+```{r echo=FALSE, include=FALSE}
+adf.test(Biomass) #ts is satationary:null hyp not rejected
+acf(Biomass, lag.max=45)
+pacf(Biomass, lag.max=45)
+arima.nee2 <-auto.arima(Biomass, trace=TRUE)
 tsdisplay(residuals(arima.nee2), lag.max=50)
 AIC(arima.nee2)
 par(mfrow=c(1,1))
-plot(nee1 , typ="l"); lines(fitted(arima.nee2),col="red")
+plot(Biomass , typ="l",xaxt="none", ylab="Biomass", xlab="Time"); lines(fitted(arima.nee2),col="red")
+axis(1,at=seq(1,10,1),  labels=seq(2007,2016,1))
 checkresiduals(arima.nee2, lag=36)
-plot(forecast(arima.nee2, h=12))
 ```
 ```{r echo=FALSE}
+plot(forecast(arima.nee2, h=12), xaxt="none", ylab="Biomass", xlab="Time")
+axis(1,at=seq(1,12,1),  labels=seq(2007,2018,1))
+```
+```{r echo=FALSE, include=FALSE}
 #Explanatory series for temperature
 Tab.DK=read.csv("/Users/daniellehatt/Desktop/BSC 6926/Data.DK.csv", header = TRUE)
 Tab.DK
@@ -67,19 +81,23 @@ temp <- tsclean(temp)
 temp.d <- decompose(temp, 'multiplicative') 
 plot(temp.d)
 adf.test(temp)
-ccf( diff(temp),nee1, na.action = na.pass, lag.max=40, plot=TRUE)
-arima.nee3 <-auto.arima(nee1, xreg=c(diff(temp),0), trace=TRUE)
+ccf( diff(temp),Biomass, na.action = na.pass, lag.max=40, plot=TRUE)
+arima.nee3 <-auto.arima(Biomass, xreg=c(diff(temp),0), trace=TRUE)
 AIC(arima.nee2, arima.nee3)
 temp.i <- temp
 temp.i[temp.i > 28 ]<- 0 
 temp.i[temp.i >= 28 ]<- 1
 plot(temp.i)
-arima.nee4 <-auto.arima(nee1, xreg=temp.i, trace=TRUE)
+arima.nee4 <-auto.arima(Biomass, xreg=temp.i, trace=TRUE)
 AIC(arima.nee2,arima.nee4 )
 checkresiduals(arima.nee4, lag=36)
 par(mfrow=c(1,1))
-plot(nee1 , typ="l"); lines(fitted(arima.nee4),col="red")
-
+```
+```{r echo=FALSE}
+plot(Biomass , typ="l", xaxt="none", main=c("Figure 5 showing temperature as an explanatory series","for biomass data")); lines(fitted(arima.nee4),col="red")
+axis(1,at=seq(1,10,1),  labels=seq(2007,2016,1))
+```
+```{r echo=FALSE, include=FALSE}
 #Explanatory series for salinity
 sal <- ts(Tab.DK$Salinity, start= 1, frequency=6)
 par(mfrow=c(1,1), mai=c(0.25,0.8,0.1, 0.1)) 
@@ -87,20 +105,35 @@ plot(sal , typ="l", ylab= "Salinity", xlab="")
 lines(tsclean(sal) , col="red")
 sal <- tsclean(sal)
 sal.d <- decompose(sal, 'multiplicative') 
-plot(sal.d)
+plot1 <- plot(sal.d)
 adf.test(sal)
-ccf( diff(sal),nee1, na.action = na.pass, lag.max=40, plot=TRUE)
-arima.nee5 <-auto.arima(nee1, xreg=c(diff(sal),0), trace=TRUE)
+ccf( diff(sal),Biomass, na.action = na.pass, lag.max=40, plot=TRUE)
+arima.nee5 <-auto.arima(Biomass, xreg=c(diff(sal),0), trace=TRUE)
 AIC(arima.nee2, arima.nee5 )
 sal.i <- sal 
 sal.i[sal.i < 25 ]<- 0 
 sal.i[sal.i >= 25 ]<- 1
 plot(sal.i)
-arima.nee6 <-auto.arima(nee1, xreg=sal.i, trace=TRUE)
+arima.nee6 <-auto.arima(Biomass, xreg=sal.i, trace=TRUE)
 AIC(arima.nee2,arima.nee6 )
 checkresiduals(arima.nee6, lag=36)
 par(mfrow=c(1,1))
-plot(nee1 , typ="l"); lines(fitted(arima.nee6),col="red")
+```
+```{r echo=FALSE}
+plot(Biomass , typ="l", xaxt="none", ylab="", xlab="", main="Figure 6 showing salinity as an explanatory series for biomass data"); lines(fitted(arima.nee6),col="red")
+axis(1,at=seq(1,10,1),  labels=seq(2007,2016,1))
+```
+```{r echo=FALSE, include=FALSE}
+x=cbind(temp,sal)
+x
+arima.nee7 <-auto.arima(Biomass, xreg=x, trace=TRUE)
+AIC(arima.nee2,arima.nee7 )
+```
+```{r echo=FALSE}
+par(mfrow=c(1,1))
+plot(Biomass , typ="l", xaxt="none", ylab="", xlab="", main=c("Figure 7 showing salinity and temperature as", "an explanatory series for biomass data")); lines(fitted(arima.nee7),col="red")
+axis(1,at=seq(1,10,1),  labels=seq(2007,2016,1))
 ```
 
 # Discussion
+Biomass for the calcareous algae *Penicillus* was collected for nine years and plotted using a time series. When decomposed, the data showed a clear seasonal trend with 9 peaks representing the seasonal pattern of growth of algae. There also seemed to be a general decreasing trend in algal biomass at this site which is expected due to increasing storms and changing varibables due to climate change. More research is needed to determine if there is a decreasing trend in algal biomass throughout Florida Bay. The data was used to fit with an ARIMA model. This model was able to follow to mean levels of biomass throughout time but was not able to follow the high variability shown in the original data. Using this model to forecast, we see a stable pattern of algal biomass in the future instead of a decrease seen in the decomposition. More data is needed to improve the model and forecasting. Temperature and salinity were used as explanatory variables to improve the ARIMA model, however, neither of these significantly improved the ARIMA model. When assessed together, a combination of temperature and salinity as drivers of biomass was able to improve the ARIMA model.

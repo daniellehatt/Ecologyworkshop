@@ -1,0 +1,57 @@
+---
+title: "Workshop 4_SpeciesDistribution"
+author: "Danielle Hatt"
+date: "1/31/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Methods
+
+### Species Information
+The data
+
+### Statistical Analysis
+Using the data
+
+# Results
+```{r echo=FALSE, include=FALSE}
+obs.data <- read.csv(file = "/Users/daniellehatt/Desktop/Ecologyworkshop/SDM_Data.csv")
+summary(obs.data)
+obs.data <- na.omit(obs.data)
+summary(obs.data)
+```
+```{r echo=FALSE}
+library(knitr)
+kable(summary(obs.data), caption = "")
+```
+
+<center>
+![**Figure 2 showing**](/Users/daniellehatt/Desktop/Ecologyworkshop/Figure 1.jpeg){width=50%}
+
+<center>
+
+<center>
+![**Figure 3 showing**](/Users/daniellehatt/Desktop/Ecologyworkshop/Figure 2.jpeg){width=50%}
+
+<center>
+
+<center>
+![**Figure 4 showing**](/Users/daniellehatt/Desktop/Ecologyworkshop/Figure 3.jpeg){width=50%}
+
+<center>
+
+<center>
+![**Figure 5 showing**](/Users/daniellehatt/Desktop/Ecologyworkshop/Figure 4.jpeg){width=50%}
+
+<center>
+
+<center>
+![**Figure 6 showing**](/Users/daniellehatt/Desktop/Ecologyworkshop/Figure 5.jpeg){width=50%}
+
+<center>
+
+# Discussion
