@@ -12,12 +12,14 @@ knitr::opts_chunk$set(echo = TRUE)
 # Methods
 
 ### Species Information
-The data
+*Carnegiea gigantea* (Saguaro) is a species of cactus that is found in very arid climates. They are an important keystone species that help to stabalize other ecological relationships. Saguro is generally distributed from Arizona to Mexico, however its distribution is clumped as it is limited by elevation. 
 
 ### Statistical Analysis
-Using the data
+The data for *Carnegiea gigantea* will be analyzed using the Bioclim model and associated variables in order to develop models for species distribution. 
 
 # Results
+The species distribution of *Carnegiea gigantea* show that there is a limited distribution between Arizona and Mexico with higher abundance in lower areas of Arizona and scattered distrubtion in Mexico (Figure 1). General patterns of their distubtion were collected (Table 1). Using bioclimatic variables, Figure 2 shows potential areas where *Carnegiea gigantea* are able to exist, however, this covers a larger range than the actual distribution shown in Figure 1. By adding points into the model that were known areas where Carnegiea gigantea does not exist, Figure 3 shows an improved prediction of the potential spacial distribution model.
+
 ```{r echo=FALSE, include=FALSE}
 obs.data <- read.csv(file = "/Users/daniellehatt/Desktop/Ecologyworkshop/SDM_Data.csv")
 summary(obs.data)
@@ -26,32 +28,23 @@ summary(obs.data)
 ```
 ```{r echo=FALSE}
 library(knitr)
-kable(summary(obs.data), caption = "")
+kable(summary(obs.data), caption = "Table 1 showing current distribution values of Carnegiea gigantea")
 ```
 
 <center>
-![**Figure 2 showing**](/Users/daniellehatt/Desktop/Ecologyworkshop/Figure 1.jpeg){width=50%}
+![**Figure 1 showing the current distribution of Carnegiea gigantea**](/Users/daniellehatt/Desktop/Ecologyworkshop/Figure 1.jpeg){width=50%}
 
 <center>
 
 <center>
-![**Figure 3 showing**](/Users/daniellehatt/Desktop/Ecologyworkshop/Figure 2.jpeg){width=50%}
+![**Figure 2 showing current distribution of Carnegiea gigantea and areas of probability of occurrence for the species **](/Users/daniellehatt/Desktop/Ecologyworkshop/Figure 2.jpeg){width=50%}
 
 <center>
 
 <center>
-![**Figure 4 showing**](/Users/daniellehatt/Desktop/Ecologyworkshop/Figure 3.jpeg){width=50%}
-
-<center>
-
-<center>
-![**Figure 5 showing**](/Users/daniellehatt/Desktop/Ecologyworkshop/Figure 4.jpeg){width=50%}
-
-<center>
-
-<center>
-![**Figure 6 showing**](/Users/daniellehatt/Desktop/Ecologyworkshop/Figure 5.jpeg){width=50%}
+![**Figure 3 showing potential distribution of Carnegiea gigantea considering pseudo-abscence points**](/Users/daniellehatt/Desktop/Ecologyworkshop/Figure 5.jpeg){width=50%}
 
 <center>
 
 # Discussion
+Firstly, using raw data, the distribution of *Carnegiea gigantea* was recorded and matches the known distribution from previous research (Figure 1). Designing a model to extrapolate potential areas for colonization based on similar variables is necessary to determine areas that might have or benefit from these keystone species. Models like these are useful to help with sampling limitations. By using distrubtion data for *Carnegiea gigantea*, we are able to design two models that can predict potential distribution areas for *Carnegiea gigantea* (Figre 2 and 3). By determining areas that these species can and cannot exist, the model becomes more accurate in prediciting suitable areas for this species (Figure 3).   
