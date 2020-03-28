@@ -6,6 +6,7 @@ output:
   html_document: default
   pdf_document: default
   word_document: default
+bibliography: "/Users/daniellehatt/Desktop/References.bib"
 ---
 
 ```{r setup, include=FALSE}
@@ -13,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 # Introduction
 <div style="text-align: justify">
-Seagrasses ecosystems are highly productive and distributed globally (Fourqurean et al. 2012). Karstic sediments known to be produced by calcifying organisms (Hill et al. 2015; Ortegon-Aznar et al. 2017) support healthy seagrass ecosystems in the tropics and subtropics (Zieman et al. 1989). In tropical ecosystems, these seagrass beds are responsible for creating a stable environment and contributing to the protection of shorelines (van Tussenbroek & Santos 2011). Intermingled within these seagrass beds, calcareous green macroalgae (CGA) such as species of the Bryopsidales (Udotea, Rhipocephalus, Penicillus, and Halimeda) and Dasycladales (Acetabularia, Cymopolia, and Neomeris) play an important role as engineering species producing calcareous sediments that facilitate the development of these large seagrass beds in subtropical and tropical ecosystems (Hillis-Colinvaux 1980, Williams 1990, van Tussenbroek and van Dijk 2007). Most of the marine carbonate found in tropical ecosystems are produced by calcareous algae (Hillis-Colinvaux 1980; Bach 1979). 
+Seagrasses ecosystems are highly productive and distributed globally [@Collado-Vides2005] (Fourqurean et al. 2012). Karstic sediments known to be produced by calcifying organisms (Hill et al. 2015; Ortegon-Aznar et al. 2017) support healthy seagrass ecosystems in the tropics and subtropics (Zieman et al. 1989). In tropical ecosystems, these seagrass beds are responsible for creating a stable environment and contributing to the protection of shorelines (van Tussenbroek & Santos 2011). Intermingled within these seagrass beds, calcareous green macroalgae (CGA) such as species of the Bryopsidales (Udotea, Rhipocephalus, Penicillus, and Halimeda) and Dasycladales (Acetabularia, Cymopolia, and Neomeris) play an important role as engineering species producing calcareous sediments that facilitate the development of these large seagrass beds in subtropical and tropical ecosystems (Hillis-Colinvaux 1980, Williams 1990, van Tussenbroek and van Dijk 2007). Most of the marine carbonate found in tropical ecosystems are produced by calcareous algae (Hillis-Colinvaux 1980; Bach 1979). 
 
 Florida Bay is a coastal subtropical lagoon that contains seagrass beds high in biodiversity and support many crucial and economically important organisms (Zieman et al. 1989). They make up approximately ten percent of the expanse of seagrass beds found in Florida Bay (Zieman et al. 1989). In Florida, the two most abundant genera of calcareous green macroalgae are Halimeda and Penicillus. The abundance of these genera fluctuates due to seasonal variability; there is more growth and calcification recorded in summer and autumn months from June to November when the sea surface temperatures are above 20oC (Wefer 1980; Collado-Vides et al. 2005). It is particularly important that the abundance of these communities be monitored due to increased anthropogenic activities. In the Everglades region, there has been a reduction of water flow due to the construction of canals, levees and pumping stations to divert water and allow urbanization of South Florida in the early 1900s. This resulted in a 70% decrease in the available water and continues to have devastating effects on surrounding ecosystems. The Comprehensive Everglades Restoration Program (CERP) aims to restore these historic water flow patterns over a thirty-year period which may cause shifts in algal communities (Perry 2003). 
 
@@ -99,32 +100,4 @@ Surveys were conducted four times a year at the study site from 2007 to 2017. At
 # Discussion
 
 # References
-Bach, S.D. 1979. Standing crop, growth and production of calcareous Siphonales   (Chlorophyta) in a South Florida lagoon. Bulletin of Marine Science 29(2):  191-201.
-
-Collado-Vides, L., L.M. Rutten & J.W. Fourqurean. 2005. Spatiotemporal Variation Of The Abundance Of Calcareous Green Macroalgae In The Florida Keys: A Study Of Synchrony Within A Macroalgal Functional Form Group1. Journal of Phycology 41(4): 742-752.
-
-Franklin, J.F. 1989. Importance and justification of long-term studies in ecology. Long-term studies in Ecology: 3-19.
-
-Frankovich, T. A., & J.W Fourqurean. 1997. Seagrass epiphyte loads along a nutrient availability gradient, Florida Bay, USA. Marine Ecology Progress Series 157: 37-50.
-
-Fourqurean, J.W., J.C. Zieman & G.V. Powell. 1992. Phosphorus limitation of primary production in Florida Bay: evidence from C:N:P ratios of the dominant seagrass Thalassia testudinum. Limnology and Oceanography 37(1): 162-171.
-
-Herbert, D. A. & J.W. Fourqurean. 2009. Phosphorus availability and salinity control productivity and demography of the seagrass Thalassia testudinum in Florida Bay. Estuaries and Coasts 32(1): 188-201.
-
-Hill, R., A. Bellgrove, P.I. Macreadie, K. Petrou, J. Beardall, A. Steven & P.J. Ralph. 2015. Can macroalgae contribute to blue carbon? An Australian perspective. Limnology and Oceanography 60(5): 1689-1706.
-
-Hillis-Colinvaux, L. 1980. Ecology and taxonomy of Halimeda: primary producer of coral reefs. Advances in Marine Biology 17: 1-327.
-
-Ortegón-Aznar, I., A. Chuc-Contreras & L. Collado-Vides. 2017. Calcareous green algae standing stock in a tropical sedimentary coast. Journal of Applied Phycology 29(5): 2685-2693.
-
-Perry, W. 2004. Elements of South Florida's Comprehensive Everglades Restoration Plan. Ecotoxicology 13(3): 185-193.
-
-van Tussenbroek, B.I., & M.G.B. Santos. 2011. Demography of Halimeda incrassata (Bryopsidales, Chlorophyta) in a Caribbean reef lagoon. Marine Biology 158(7): 1461-1471.
-
-van Tussenbroek, B.I. & J.K. van Dijk. 2007. Spatial and temporal variability in biomass and production of psammophytic Halimeda incrassata (Bryopsidales, Chlorophyta) in a Caribbean reef lagoon. Journal of Phycology 43(1): 69-77. 
-
-Wefer, G. 1980. Carbonate production by algae Halimeda, Penicillus and Padina. Nature 285(5763): 323-324.
-
-Zieman, J., J.W. Fourqurean & R.L. Iverson. 1989. Distribution, abundance and productivity of seagrasses and macroalgae in Florida Bay. Bulletin of Marine Science 44(1): 292-311.
-
 
