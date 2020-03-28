@@ -1,0 +1,130 @@
+---
+title: "Assignment_FinalProject"
+author: "Danielle Hatt"
+date: "3/27/2020"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Introduction
+<div style="text-align: justify">
+Seagrasses ecosystems are highly productive and distributed globally (Fourqurean et al. 2012). Karstic sediments known to be produced by calcifying organisms (Hill et al. 2015; Ortegon-Aznar et al. 2017) support healthy seagrass ecosystems in the tropics and subtropics (Zieman et al. 1989). In tropical ecosystems, these seagrass beds are responsible for creating a stable environment and contributing to the protection of shorelines (van Tussenbroek & Santos 2011). Intermingled within these seagrass beds, calcareous green macroalgae (CGA) such as species of the Bryopsidales (Udotea, Rhipocephalus, Penicillus, and Halimeda) and Dasycladales (Acetabularia, Cymopolia, and Neomeris) play an important role as engineering species producing calcareous sediments that facilitate the development of these large seagrass beds in subtropical and tropical ecosystems (Hillis-Colinvaux 1980, Williams 1990, van Tussenbroek and van Dijk 2007). Most of the marine carbonate found in tropical ecosystems are produced by calcareous algae (Hillis-Colinvaux 1980; Bach 1979). 
+
+Florida Bay is a coastal subtropical lagoon that contains seagrass beds high in biodiversity and support many crucial and economically important organisms (Zieman et al. 1989). They make up approximately ten percent of the expanse of seagrass beds found in Florida Bay (Zieman et al. 1989). In Florida, the two most abundant genera of calcareous green macroalgae are Halimeda and Penicillus. The abundance of these genera fluctuates due to seasonal variability; there is more growth and calcification recorded in summer and autumn months from June to November when the sea surface temperatures are above 20oC (Wefer 1980; Collado-Vides et al. 2005). It is particularly important that the abundance of these communities be monitored due to increased anthropogenic activities. In the Everglades region, there has been a reduction of water flow due to the construction of canals, levees and pumping stations to divert water and allow urbanization of South Florida in the early 1900s. This resulted in a 70% decrease in the available water and continues to have devastating effects on surrounding ecosystems. The Comprehensive Everglades Restoration Program (CERP) aims to restore these historic water flow patterns over a thirty-year period which may cause shifts in algal communities (Perry 2003). 
+
+The Florida Coastal Everglades, Long Term Ecological Research (FCE LTER) program surveys calcareous algal communities at three sites representative of a salinity gradient in Florida Bay: Sprigger Bank, Bob Allen and Duck Key. In this polyhaline estuary, Sprigger Bank is more stable in salinity compared to Bob Allen and Duck Key (Herbert & Fourqurean 2009; Frankovich & Fourqurean 2009). Spatiotemporal long-term studies like these helps to get a larger picture of changes occurring over time, changes in slow biological processes or changing ecological patterns that may not be evident otherwise (Franklin 1989). These studies can also help to forecast potential trends in biomass as CERP strategies and water management are being implemented at Florida Bay. These changes can affect levels of salinity thereby causing reduced production of organic and inorganic carbon between genera and among different locations where these calcareous algal communities are present in Florida Bay. 
+
+The hypotheses we propose are that (1) 
+
+</div>
+
+# Methods
+### Site Information 
+<div style="text-align: justify">
+Florida Bay is a shallow coastal subtropical lagoon that contains one of the largest expanses of seagrass beds in the world extending approximately 5500 km2, ranging from the Everglades to the Florida Keys (Fourqurean et al. 1992). The dominant seagrasses in the bay are Thalassia testudinum, Halodule wrightii and Syringodium filiforme with intermixed rhizophitic macroalgae species of the genera Halimeda, Penicillus, Udotea, Caulerpa, and other red algae such as species of the genera Laurencia and Amphiroa (Frankovich and Fourqurean 1997), with calcareous green algae (CGA) making up approximately ten percent of the expanse of the seagrass beds (Zieman et al. 1989). The distribution of macrophyte species has been related with patterns of salinity and nutrient availability and higher salinity fluctuations, varying from the northeast characterized by higher availability of nitrogen and higher variability of salinity, while the southwest regions of the bay is characterized by more stable salinity within ranges of marine conditions, and higher availability of phosphorous (Ziemman 1989; Herbert and Fourqurean 2009; Frankovich and Fourqurean 1997).
+
+Surveys of calcareous green algae were conducted at three sites representative of a salinity gradient in Florida Bay: Sprigger Bank (24°91’N, 80°93’W), Bob Allen (25°02’N, 80°68’W) and Duck Key (25°17’N, 80°48’W) (Figure 1). Sprigger Bank is the only site where both *Halimeda* and *Penicillus* were present. *Penicillus* was observed at all three sites. Halimeda consists of segmented branches and is considered a major tropical algae at shallow depths (Garrigue 1990). Penicillus is studied less frequently and has a different morphological structure containing a calcified thallus and cap (Ries 2009). Water depth at all three sites were below 2 meters (Herbert and Fourqurean 2009). Sprigger Bank is impacted by the flow of water from the Gulf and characterized by high density of seagrasses dominated by T. testudinum, stable salinity and high phosphorous availability (Herbert and Fourquerean 2009, Zieman et al. 1989). Bob Allen and Duck Key are a mix of flat subtidal basins and shallow intertidal regions both impacted by the flow of freshwater sources. These sites are characterized by limited abundance of H. wrightii, T. testudinum and Penicillus and low tidal energy, variable salinity due to their proximity to freshwater sources from the Everglades and higher availability of nitrogen (Herbert and Fourqurean 2009, Fourqurean et al. 1992, Frankovich and Fourqurean 1997, Zieman et al. 1989).
+
+</div>
+
+**CLIMATE**
+
+
+<center>
+
+![**Figure 1 showing study sites at Florida Bay**](/Users/daniellehatt/Desktop/BSC 6926/FlBay_map2.jpg){width=40%}
+
+<center>
+
+## Methods	
+Surveys were conducted four times a year at the study site from 2007 to 2017. At each survey, divers used three randomly placed 0.25m^2 quadrats along a transect line to collect macroalgae by hand. All samples were brought back to the lab, cleaned and separated on the genus level for each quadrat at each site. The samples were dried for 48 hours in an oven set to 70oC. Samples for each quadrat were weighed and this was recorded as the dry weight. The samples were ashed in an oven at 400oC for 5 hours. These ashes were weighed and were recorded as calcium carbonate (CaCO3). CaCO3 was used as a proxy for inorganic carbon. The weight of the CaCO3 recorded was subtracted from the dry weight previously obtained and this new weight was used as the amount of biomass for each quadrat. Biomass was used as a proxy for organic carbon.
+
+## Statistical Analysis
+
+# Results
+<center>
+
+![**Figure 2 showing the four collections of biomass of macroalgae from the site Sprigger Bank, Florida Bay from 2007 to 2017.**](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot.jpeg){width=60%}
+
+<center>
+
+<center>
+
+![**Figure 3 showing the ....**](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot01.jpeg){width=60%}
+
+
+<center>
+
+<center>
+
+![**Figure 4 showing the ....**](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot03.jpeg){width=60%}
+
+
+<center>
+
+<center>
+
+![**Figure 5 showing the ....**](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot04.jpeg){width=60%}
+<center>
+
+![**Figure 6 showing the ....**](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot05.jpeg){width=60%}
+<center>
+
+<center>
+
+![**Figure 7 showing the ....**](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot06.jpeg){width=60%}
+
+
+<center>
+
+<center>
+
+![**Figure 8 showing the ....**](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot07.jpeg){width=60%}
+
+
+<center>
+
+<center>
+
+![**Figure 9 showing the ....**](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot08.jpeg){width=60%}
+
+
+<center>
+
+# Discussion
+
+# References
+Bach, S.D. 1979. Standing crop, growth and production of calcareous Siphonales   (Chlorophyta) in a South Florida lagoon. Bulletin of Marine Science 29(2):  191-201.
+
+Collado-Vides, L., L.M. Rutten & J.W. Fourqurean. 2005. Spatiotemporal Variation Of The Abundance Of Calcareous Green Macroalgae In The Florida Keys: A Study Of Synchrony Within A Macroalgal Functional Form Group1. Journal of Phycology 41(4): 742-752.
+
+Franklin, J.F. 1989. Importance and justification of long-term studies in ecology. Long-term studies in Ecology: 3-19.
+
+Frankovich, T. A., & J.W Fourqurean. 1997. Seagrass epiphyte loads along a nutrient availability gradient, Florida Bay, USA. Marine Ecology Progress Series 157: 37-50.
+
+Fourqurean, J.W., J.C. Zieman & G.V. Powell. 1992. Phosphorus limitation of primary production in Florida Bay: evidence from C:N:P ratios of the dominant seagrass Thalassia testudinum. Limnology and Oceanography 37(1): 162-171.
+
+Herbert, D. A. & J.W. Fourqurean. 2009. Phosphorus availability and salinity control productivity and demography of the seagrass Thalassia testudinum in Florida Bay. Estuaries and Coasts 32(1): 188-201.
+
+Hill, R., A. Bellgrove, P.I. Macreadie, K. Petrou, J. Beardall, A. Steven & P.J. Ralph. 2015. Can macroalgae contribute to blue carbon? An Australian perspective. Limnology and Oceanography 60(5): 1689-1706.
+
+Hillis-Colinvaux, L. 1980. Ecology and taxonomy of Halimeda: primary producer of coral reefs. Advances in Marine Biology 17: 1-327.
+
+Ortegón-Aznar, I., A. Chuc-Contreras & L. Collado-Vides. 2017. Calcareous green algae standing stock in a tropical sedimentary coast. Journal of Applied Phycology 29(5): 2685-2693.
+
+Perry, W. 2004. Elements of South Florida's Comprehensive Everglades Restoration Plan. Ecotoxicology 13(3): 185-193.
+
+van Tussenbroek, B.I., & M.G.B. Santos. 2011. Demography of Halimeda incrassata (Bryopsidales, Chlorophyta) in a Caribbean reef lagoon. Marine Biology 158(7): 1461-1471.
+
+van Tussenbroek, B.I. & J.K. van Dijk. 2007. Spatial and temporal variability in biomass and production of psammophytic Halimeda incrassata (Bryopsidales, Chlorophyta) in a Caribbean reef lagoon. Journal of Phycology 43(1): 69-77. 
+
+Wefer, G. 1980. Carbonate production by algae Halimeda, Penicillus and Padina. Nature 285(5763): 323-324.
+
+Zieman, J., J.W. Fourqurean & R.L. Iverson. 1989. Distribution, abundance and productivity of seagrasses and macroalgae in Florida Bay. Bulletin of Marine Science 44(1): 292-311.
+
+
