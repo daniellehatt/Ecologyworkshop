@@ -162,37 +162,75 @@ checkresiduals(arima.DK1, lag=4)
 plot(forecast(arima.DK1, h=20), xaxt="none",  ylab= "Biomass"~"("~"g/m"^{2}~"per quadrat"~")", xlab="Time")
 axis(1,at=seq(1,15,1),  labels=seq(2007,2021,1))
 
-
-
-
 #Bob Allen: Time Series
 file.choose()
-Tab.BA=read.csv("/Users/daniellehatt/Desktop/BSC 6926/Data.BA.csv", header = TRUE)
+Tab.BA=read.csv("/Users/daniellehatt/Desktop/BSC 6926/Final Project Datasets/LTER.BA.csv", header = TRUE)
 Tab.BA
-BA1 <- ts( Tab.BA$Biomass, start= 1, frequency=6)
+BA1 <- ts( Tab.BA$Biomass, start= 1, frequency=4)
 BA1
-par(mfrow=c(1,1), mai=c(0.5,0.5,0.5, 0.5)) 
-plot(BA1, typ="l", ylab= "Biomass", xaxt="none", main="Figure 1 showing biomass of Penicillus at BA from 2007-2015")
-axis(1,at=seq(1,11,1),  labels=seq(2007,2017,1))
+par(mfrow=c(1,1), mai=c(1,1,1,1)) 
+plot(BA1, typ="l", ylab= "Biomass"~"("~"g/m"^{2}~"per quadrat"~")", xlab="Time", xaxt="none", main="Biomass at Bob Allen Keys from 2007-2017")
+axis(1,at=seq(1,12,1),  labels=seq(2007,2018,1))
 lines(tsclean(BA1), col="red")
 BA1 <- tsclean(BA1)
-plot(BA1, ylab="Biomass", xlab="", xaxt="none")
-axis(1,at=seq(1,11,1),  labels=seq(2007,2017,1))
+plot(BA1, ylab= "Biomass"~"("~"g/m"^{2}~"per quadrat"~")", xlab="Time", xaxt="none")
+axis(1,at=seq(1,12,1),  labels=seq(2007,2018,1))
+par(mfrow=c(1,1), mai=c(.6,.6,.6,.6)) 
 BA.d1 <- decompose(BA1, 'multiplicative') 
 plot(BA.d1, xaxt="none", xlab="")
-axis(1,at=seq(1,11,1),  labels=seq(2007,2017,1))
+axis(1,at=seq(1,12,1),  labels=seq(2007,2018,1))
 adf.test(BA1) #ts is satationary:null hyp not rejected
-adf.test(diff(BA1))
-acf(diff(BA1), lag.max=45)
-arima.BA2 <-auto.arima(diff(BA1), trace=TRUE)
+BA2= diff(DK1, differences = 1, lag = 4)
+plot(BA2)
+acf(BA2, lag.max=4)
+pacf(BA2, lag.max=4)
+arima.BA2 <-auto.arima(BA2, trace=TRUE)
 tsdisplay(residuals(arima.BA2), lag.max=50)
 AIC(arima.BA2)
 par(mfrow=c(1,1))
-plot(BA1 , typ="l", ylab="Biomass", xlab="Year", xaxt="none", main="Figure 4 showing ARIMA model fitted to Biomass data for Penicillus");
+plot(BA2 , typ="l", ylab= "Biomass"~"("~"g/m"^{2}~"per quadrat"~")", xlab="Time", xaxt="none", main="Figure 4 showing ARIMA model fitted to Biomass data for Penicillus");
 lines(fitted(arima.BA2),col="red")
-axis(1,at=seq(1,11,1),  labels=seq(2007,2017,1))
-checkresiduals(arima.BA2, lag=36)
+axis(1,at=seq(1,12,1),  labels=seq(2007,2018,1))
+checkresiduals(arima.BA2, lag=4)
 plot(forecast(arima.BA2, h=20), xaxt="none")
 axis(1,at=seq(1,15,1),  labels=seq(2007,2021,1))
+
+
+#Biomass for each site
+dev.off()
+par(mfrow=c(1,3))
+plot(SB1, ylab= "Biomass"~"("~"g/m"^{2}~"per quadrat"~")", xlab="" ,xaxt="none", main="Biomass at Sprigger Bank from 2007-2017")
+axis(1,at=seq(1,12,1),  labels=seq(2007,2018,1))
+plot(BA1, ylab= "", xaxt="none", xlab="Time" ,main="Biomass of Penicillus at Bob Allen Keys from 2007-2017")
+axis(1,at=seq(1,12,1),  labels=seq(2007,2018,1))
+plot(DK1, ylab= "", xlab="", xaxt="none", main="Biomass at Duck Key from 2007-2017")
+axis(1,at=seq(1,12,1),  labels=seq(2007,2018,1))
+
+#Decomposition for each site
+par(mfrow=c(1,3))
+plot(SB.d1, xaxt="none", xlab="")
+axis(1,at=seq(1,12,1),  labels=seq(2007,2018,1))
+plot(BA.d1, xaxt="none", xlab="")
+axis(1,at=seq(1,12,1),  labels=seq(2007,2018,1))
+plot(DK.d1, xaxt="none", xlab="")
+axis(1,at=seq(1,12,1),  labels=seq(2007,2018,1))
+
+#ARIMA model for each site
+par(mfrow=c(1,3))
+plot(SB2 , typ="l", ylab= "Biomass"~"("~"g/m"^{2}~"per quadrat"~")", xlab="", xaxt="none", main="ARIMA model fitted to biomass data for Sprigger Bank"); lines(fitted(arima.SB2),col="red")
+axis(1,at=seq(1,12,1),  labels=seq(2007,2018,1))
+plot(BA2 , typ="l", ylab= "", xlab="Time", xaxt="none", main="ARIMA model fitted to Biomass data for Penicillus"); lines(fitted(arima.BA2),col="red")
+axis(1,at=seq(1,12,1),  labels=seq(2007,2018,1))
+plot(DK2 , typ="l", ylab= "", xlab="", xaxt="none", main="ARIMA model fitted to biomass data for Duck Key"); lines(fitted(arima.DK1),col="red")
+axis(1,at=seq(1,12,1),  labels=seq(2007,2018,1))
+
+#Forecasting for each site
+par(mfrow=c(1,3))
+plot(forecast(arima.SB2, h=20), xaxt="none", ylab= "Biomass"~"("~"g/m"^{2}~"per quadrat"~")", xlab="")
+axis(1,at=seq(1,25,1),  labels=seq(2007,2031,1))
+plot(forecast(arima.DK1, h=20), xaxt="none",  ylab= "", xlab="Time")
+axis(1,at=seq(1,25,1),  labels=seq(2007,2031,1))
+plot(forecast(arima.BA2, h=20), xaxt="none", ylab= "", xlab="")
+axis(1,at=seq(1,25,1),  labels=seq(2007,2031,1))
 
 
