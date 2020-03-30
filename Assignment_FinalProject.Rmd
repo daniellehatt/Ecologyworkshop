@@ -1,5 +1,5 @@
 ---
-title: "Standing stock gradients of calcareous green macroalage in Florida Bay, USA"
+title: "Spatiotemporal gradients of biomass in calcareous green macroalage across Florida Bay, USA"
 subtitle: "BSC 6926 Final Project: Quantitative Ecology "
 author: "Danielle Hatt"
 date: "3/27/2020"
@@ -18,12 +18,16 @@ knitr::opts_chunk$set(echo = TRUE)
 <div style="text-align: justify">
 Seagrasses ecosystems are highly productive and distributed globally [@Fourqurean2012]. Karstic sediments known to be produced by calcifying organisms [@Hill2015; @Ortegon-Aznar2017] support healthy seagrass ecosystems in the tropics and subtropics [@Zieman1989]. In tropical ecosystems, these seagrass beds are responsible for creating a stable environment and contributing to the protection of shorelines [@VanTussenbroek2011]. Intermingled within these seagrass beds, calcareous green macroalgae (CGA) such as species of the Bryopsidales (*Udotea*, *Rhipocephalus*, *Penicillus*, and *Halimeda*) and Dasycladales (*Acetabularia*, *Cymopolia*, and *Neomeris*) play an important role as engineering species producing calcareous sediments that facilitate the development of these large seagrass beds in subtropical and tropical ecosystems [@Hillis-Colinvaux1980; @VanTussenbroek2007]. Most of the marine carbonate found in tropical ecosystems are produced by calcareous algae [@Hillis-Colinvaux1980; @Bach1979]. 
 
-Florida Bay is a coastal subtropical lagoon that contains seagrass beds high in biodiversity and support many crucial and economically important organisms [@Zieman1989]. They make up approximately ten percent of the expanse of seagrass beds found in Florida Bay [@Zieman1989]. In Florida, the two most abundant genera of calcareous green macroalgae are *Halimeda* and *Penicillus*. The abundance of these genera fluctuates due to seasonal variability; there is more growth and calcification recorded in summer and autumn months from June to November when the sea surface temperatures are above 20^o^C [@Wefer1980;@Collado-Vides2005]. It is particularly important that the abundance of these communities be monitored due to increased anthropogenic activities affecting environmental factors such as temperature and salinity. Temperature is an important driver in biological activity in macroalgae, however, there is a large variation in optimal temperature ranges due to difference in habitats and algal morphological characteristics and at specific thresholds iphotosynthetic activity can drastically decrease [@Bach1979; @Davison1991]. It is important to determine how global fluctuations in temperatures due to increasing carbon dioxide emissions in the earth's atmosphere will potentially shift algal communities. 
+Florida Bay is a coastal subtropical lagoon that contains seagrass beds high in biodiversity and support many crucial and economically important organisms [@Zieman1989]. They make up approximately ten percent of the expanse of seagrass beds found in Florida Bay [@Zieman1989]. In Florida, the two most abundant genera of calcareous green macroalgae (CGA) are *Halimeda* and *Penicillus*. The abundance of these genera fluctuates due to seasonal variability; there is more growth and calcification recorded in summer and autumn months from June to November when the sea surface temperatures are above 20^o^C [@Wefer1980;@Collado-Vides2005]. It is particularly important that the abundance of these communities be monitored due to increased anthropogenic activities affecting environmental factors such as temperature and salinity. Temperature is an important driver in biological activity in macroalgae, however, there is a large variation in optimal temperature ranges due to difference in habitats and algal morphological characteristics and at specific thresholds, photosynthetic activity can drastically decrease [@Bach1979; @Davison1991]. It is important to determine how global fluctuations in temperatures due to increasing carbon dioxide emissions in the earth's atmosphere will potentially shift algal communities. 
 
-At the local scale, there are other drivers of algal biomass. In the Everglades region, there has been a reduction of water flow due to the construction of canals, levees and pumping stations to divert water and allow urbanization of South Florida in the early 1900s. This resulted in a 70% decrease in the available water and continues to have devastating effects on surrounding ecosystems. The Comprehensive Everglades Restoration Program (CERP) aims to restore these historic water flow patterns over a thirty-year period which may cause fluctuations in salinity and therefore shifts in algal communities [@Perry]. The Florida Coastal Everglades, Long Term Ecological Research (FCE LTER) program surveys calcareous algal communities at three sites representative of a salinity gradient in Florida Bay: Sprigger Bank, Bob Allen Keys and Duck Key. In this polyhaline estuary, Sprigger Bank is more stable in salinity compared to Bob Allen and Duck Key [@Herbert2009; @Frankovich2009]. Spatiotemporal long-term studies like these helps to get a larger picture of changes occurring over time, changes in slow biological processes or changing ecological patterns that may not be evident otherwise [@Franklin1989]. These studies can also help to forecast potential trends in biomass which can aid in managment of the CERP strategies and water management decisions as they continute to be implemented at Florida Bay. Drastic changes in water flow can affect levels of salinity thereby causing reduced production of organic and inorganic carbon between genera and among different locations where these calcareous algal communities are present in Florida Bay. 
+At the local scale, there are other drivers of algal biomass. In the Everglades region, there has been a reduction of water flow due to the construction of canals, levees and pumping stations to divert water and allow urbanization of South Florida in the early 1900s. This resulted in a 70% decrease in the available water and continues to have devastating effects on surrounding ecosystems. The Comprehensive Everglades Restoration Program (CERP) aims to restore these historic water flow patterns over a thirty-year period which may cause fluctuations in salinity and therefore shifts in algal communities [@Perry]. The Florida Coastal Everglades, Long Term Ecological Research (FCE LTER) program surveys CGA communities at three sites representative of a salinity gradient in Florida Bay: Sprigger Bank, Bob Allen Keys and Duck Key. Spatiotemporal long-term studies like these helps to get a larger picture of changes occurring over time, changes in slow biological processes or changing ecological patterns that may not be evident otherwise [@Franklin1989]. These studies can also help to forecast potential trends in biomass which can aid in management of CERP strategies and water management decisions as they continue to be implemented at Florida Bay. Drastic changes in water flow can affect levels of salinity thereby causing reduced production of organic and inorganic carbon between genera and among different locations where these calcareous algal communities are present in Florida Bay. 
 
-Therefore, this reserach aims to analyze spatiotemporal long-term trends of calcareous marcroalgae in Florida Bay in order to understand potential impacts of fluctuating temperature and salinity across the bay as a result of increased anthropogenic activities. The hypotheses we propose are that (1) 
+Therefore, this research aims to analyze spatiotemporal long-term trends of CGA in Florida Bay in order to understand potential impacts of fluctuating temperature and salinity across the bay as a result of increased anthropogenic activities. The hypotheses we propose are: 
 
+1. Biomass of CGA will be site dependent with a larger contribution expected towards to southwest region of the bay (Sprigger Bank) than the sites closer to the northeast region of the bay (Bob Allen Keys, Duck Key). 
+2. Biomass of CGA will show overall decreasing temporal patterns in biomass across all sites in Florida Bay.
+3. Modeling will show that trends of biomass of CGA is driven by abiotic factors: temperature and salinity.
+4. Modeling will show that trends of biomass of CGA will continue to decrease in the upcoming 10 years (2008-2027).
 </div>
 
 # Methods
@@ -37,45 +41,64 @@ Across the bay, seasonal patterns in temperature were similar with minimum value
 
 <center>
 
-![**Figure 1 showing study sites at Florida Bay**](/Users/daniellehatt/Desktop/BSC 6926/FlBay_map2.jpg){width=40%}
+![**Figure 1 showing the three surveyed sites within Florida Bay, USA: Sprigger Bank, Bob Allen Keys, and Duck Key.**](/Users/daniellehatt/Desktop/BSC 6926/FlBay_map2.jpg){width=40%}
 
 <center>
+
 
 <div style="text-align: justify">
 ##### *Data Collection*	
 Surveys were conducted four times a year at the study site from 2007 to 2017. At each survey, divers used three randomly placed 0.25m^2^ quadrats along a transect line to collect macroalgae by hand. All samples were brought back to the lab, cleaned and separated on the genus level for each quadrat at each site. The samples were dried for 48 hours in an oven set to 70^o^C. Samples for each quadrat were weighed and this was recorded as the dry weight. The samples were ashed using the Loss on Ignition method (LOI) in an oven at 400^o^C for 5 hours [@Fourqurean2012]. These ashes were weighed and were recorded as calcium carbonate (CaCO~3~). CaCO~3~ was used as a proxy for inorganic carbon. The weight of the CaCO~3~ recorded was subtracted from the dry weight previously obtained and this new weight was used as the amount of biomass for each quadrat. Biomass was used as a proxy for organic carbon.
 
 ##### *Statistical Analysis*
-The data for 2007 to 2017 was separated for each site and an average for each of the three quadrats was obtained so that there were four points representing seasonality for each year. The data cleaned in order to remove any anomalies and then plotted to observe seasonal and annual patterns in biomass trends for each site. The cleaned data was decomposed using a multiplicative time series analysis to confirm seasonal trends and to reveal any underlying overall trends in biomass. The Augmented Dickey Fuller test (ADF) in conjunction with autocorrelation functions (ACF) and partial autocorrelation functions (PACF) were used as tools to determine if differentiation of the data was necessary based on stationarity and autocorrelation. If the data at each site was not stationary, the data was transform using differentiation either once or twice depending the variance within the data and re-tested using these analytical tests. Once the data was stationary, an autoregressive integrated moving average model (ARIMA) was fitted to determine the temporal trends. The goodness of fit of the model and its test for independence was examined by carrying out the Ljung- Box test on its residuals. Data on temperature and salinity were used as explanatory variables both separately and in conjunction to attempt to improve the ARIMA models. The Akaike information criterion (AIC) was then carried out to compare the models. The best fit models were then used to forecast potential trends in biomass at each site for the next 5 years. Statistical analyses were performed using the program RStudio (RStudio, Inc.) and associated packages.
+The data for 2007 to 2017 was separated for each site and an average for each of the three quadrats was obtained so that there were four points representing seasonality for each year. The data cleaned in order to remove any anomalies and then plotted to observe seasonal and annual patterns in biomass trends for each site. The cleaned data was decomposed using a multiplicative time series analysis to confirm seasonal trends and to reveal any underlying overall trends in biomass. The Augmented Dickey Fuller test (ADF) in conjunction with plots of autocorrelation functions (ACF) and partial autocorrelation functions (PACF) were used as tools to determine if differentiation of the data was necessary based on stationarity and autocorrelation. If the data at each site was not stationary, the data was transform using differentiation either once or twice depending the variance within the data and re-tested using these analytical tests. Once the data was stationary, an autoregressive integrated moving average model (ARIMA) was fitted to determine the temporal trends. The goodness of fit of the model and its test for independence was examined by carrying out the Ljung- Box test on its residuals. Data on temperature and salinity were used as explanatory variables both separately and in conjunction to attempt to improve the ARIMA models. The Akaike information criterion (AIC) was then carried out to compare the models. The best fit models were then used to forecast potential trends in biomass at each site for the next 10 years. Statistical analyses were performed using the program RStudio (RStudio, Inc.) and associated packages.
 </div>
 
+<div style="text-align: justify">
 # Results
-Across the 11 year survey period, biomass at Sprigger Bank (Figure 2a), the site southwest of the bay was higher and more variable than the biomass observed at both Bob Allen Keys (Figure 2b) and Duck Key (Figure 2c), the sites to the northeast of the bay. Decomposition of trends for biomass showed seasonal fluctuation with 10 distinct peaks at each site. Both Sprigger Bank (Figure 3a) and Duck Key (Figure 3c) showed an overall decreasing trends in biomass across the 11 year survey period. With the lowest values of biomass compared to the other sites (Figure 2b), Bob Allen Keys had an overall fluctuating trend in biomass during the survey period (Figure 3b).
-
-
-<center>
-
-![**Figure 2 showing the quarterly contributions of biomass by calcareous green macroalgae at each of the three surveryed sites in Florida Bay, USA from 2007 to 2017. (a) Sprigger Bank, (b) Bob Allen Keys and (c) Duck Key.**](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot09.jpeg){width=80%}
+Across the 11 year survey period, the mean biomass at Sprigger Bank (Figure 2a), the site southwest of the bay, was higher (38.529g/m^2^) and more variable than the mean biomass observed at both Bob Allen Keys (0.4330g/m^2^) (Figure 2b) and Duck Key (2.4559g/m^2^) (Figure 2c), the sites to the northeast of the bay. Decomposition of trends for biomass showed seasonal fluctuation with 10 distinct peaks at each site. Both Sprigger Bank (Figure 3a) and Duck Key (Figure 3c) showed an overall decreasing trends in biomass across the 11 year survey period. With the lowest values of biomass compared to the other sites (Figure 2b), Bob Allen Keys had an overall fluctuating trend in biomass during the survey period (Figure 3b).
+</div>
 
 <center>
 
-<center>
-
-![**Figure 4 showing the ....**](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot10.jpeg){width=80%}
-
+![**Figure 2 showing time series of quarterly contributions of biomass by calcareous green macroalgae at each of the three surveryed sites in Florida Bay, USA from February 2007 to December 2017. (a) Seasonal fluctuations of *Halimeda* and *Penicillus* at Sprigger Bank over time, (b) Seasonal fluctuations of biomass of *Penicillus* at Bob Allen Keys over time and (c) Seasonal fluctuations of biomass of *Penicillus* at Duck Key over time.**](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot09.jpeg){width=90%}
 
 <center>
 
+<div style="text-align: justify">
+For each site, we failed to reject the null hypothesis of non-stationarity using the ADF test p-values of 0.2208 at Sprigger Bank, 0.08574 at Bob Allen Keys and 0.1816 at Duck Key. In order to stabalize the variances and transform the data to remove seasonal trends, second order differencing was carried out on the data for Sprigger Bank and Duck Key while first order differencing was carried out on Bob Allen Keys. Re-runs of the ADF test showed significant p-value of <.01 for the transformed values at each site. ACF and PACF plots confirmed stationarity of the differenced data with uncorrelated values. At Sprigger Bank, the model 'ARIMA(0,0,0)(1,0,1)[4]' was the best fit of the data with an AIC value of 345.7815. At Bob Allen Keys, the model 'ARIMA(1,0,0)(0,0,1)[4]' was the best fit of the data with an AIC value of 170.8989. At Duck Key, the model 'ARIMA(0,0,0)(2,0,0)[4]' was the best fit of the data with an AIC value of 157.5712. All three models were able to generally follow the overall temporal patterns of biomass with similar mean and peaks of the data, however, some extreme peaks were not able to be predicted (Figure 4 a,b,c). ACF and PACF plots of each model along with the Ljung-Box test carried out on the residuals of the model confirmed independence of the data with no significant autocorrelation  and normally distributed residuals. 
+</div>
+
 <center>
 
-![**Figure 4 showing the ....**](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot11.jpeg){width=80%}
-
+![**Figure 4 showing the best fit ARIMA model versus the observed data for each site over the period of 11 years from 2007 to 2017. (a) Modeling of Sprigger Bank using ARIMA(0,0,0)(1,0,1)[4] model, (b) Modeling of Bob Allen Keys ARIMA(1,0,0)(0,0,1)[4] model and (c) Modeling of Duck Key ARIMA(0,0,0)(2,0,0)[4] model.**](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot15.jpeg){width=90%}
 
 <center>
 
+<div style="text-align: justify">
+Drivers of calcareous green macroalgal abundance, temperature and salinity, were used as explanatory variables to attempt to improve the ARIMA models. Temperature values provided improved models (Figure 4 a,b) with lower AIC values compared to the original models for Sprigger Bank (ARIMA(0,0,0)(1,0,2)[4]; AIC 338.4360) and Duck Key (ARIMA(0,0,0)(2,0,1)[4]; AIC 161.1481). Temperature values for Bob Allen Keys obtained a model with higher AIC values and therefore did not improve the model. Extreme values of temperature typically associated with lower photosynethic rates in calcareous green algae did not improve any of the models. Both salinity and extreme salinity values (>35ppt) were also applied as an explanatory variable and did not improve any of the three original site models. Temperature and salinity as synergistic variables driving algal biomass were applied and did not improve the model. 
+</div>
+
+<center>
+
+![**Figure 5 showing the best fit ARIMA model obtained with temperature as an explanatory variable versus the observed data for each site over the period of 11 years from 2007 to 2017. (a) Modeling of Sprigger Bank using improved model ARIMA(0,0,0)(1,0,2)[4], (b) Modeling of Duck Key using improved model ARIMA(0,0,0)(2,0,1)[4]. **](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot12.jpeg){width=90%}
+
+<center>
+
+<div style="text-align: justify">
+The best fit ARIMA models for each of the sites were used to forecast potential trends of biomass over the next 10 year period from 2018 to 2027 (Figure 6 a,b,c). Trends at Sprigger Bank showed an intial spike in biomass followed by lower biomass values in the following 2021 to 2027 compared to previous years (Figure 6a). The model obtained for Bob Allen Keys forecasted that biomass may go to zero within the near future, starting as early as 2020 based on pervious trends (Figure 6b). At Duck Key, forecasting using the improved model stable trends with overall lower values of biomass at its highest peaks (Figure 6c).
+</div>
+
+<center>
+
+![**Figure 6 showing the observed data for each of the sites with forecasted values for biomass for the upcoming 10 year period (2018 to 2027) using best fit ARIMA models. (a) Predicted trends in biomass for Sprigger Bank using ARIMA(0,0,0)(1,0,2)[4], (b) Predicted trends in biomass for Bob Allen Keys using ARIMA(1,0,0)(0,0,1)[4] and (c) Predicted trends in biomass for Duck Key using ARIMA(0,0,0)(2,0,1)[4]. **](/Users/daniellehatt/Desktop/BSC 6926/Final Project Graphs/Rplot14.jpeg){width=90%}
 
 <center>
 
 # Discussion
 
+
 # References
+
+
+
